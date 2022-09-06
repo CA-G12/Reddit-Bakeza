@@ -2,6 +2,7 @@ const { join } = require('path');
 const express = require('express');
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
+const router = require('./routes');
 
 const app = express();
 
@@ -12,5 +13,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(compression());
 app.use(cookieParser());
 app.use(express.static(join(__dirname, '..', 'public')));
+
+app.get('/signup', (req, res) => {
+    res.redirect('/public/signup/index.html');
+    res.send('signed');
+});
+
+app.use(router);
 
 module.exports = app;
