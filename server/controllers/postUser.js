@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const joi = require('joi');
 const { postUser, getUser } = require('../database/queries');
-const generateToken  = require('../jwt');
+const { generateToken }  = require('../jwt');
 
 const hashPassword = (password) => bcrypt.hash(password, 10); // round
 
