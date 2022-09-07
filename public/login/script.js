@@ -12,7 +12,7 @@ signInForm.addEventListener('submit', (e) => {
   };
   fetch('/logged', options)
     .then((res) => {
-      window.location.href = '/';
+      window.location.href = '/authorized';
     })
     .catch((err) => console.log(err));
 });

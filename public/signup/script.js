@@ -15,7 +15,7 @@ signupbtn.addEventListener('click', (e) => {
   };
   fetch('/signed', options)
     .then((data) => {
-      window.location.href = '/'
+      window.location.href = '/authorized'
     })
     .catch((err) => console.error);
 });
