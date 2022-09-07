@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const joi = require('joi');
-const generateToken = require('../jwt');
+const { generateToken } = require('../jwt');
 const { getUser, validatePassword } = require('../database/queries');
 
 const schema = joi.object({
