@@ -93,3 +93,9 @@ a {
   display: inline;
   margin-bottom: cpx;
 }
+input:valid{
+  color: green;
+}
+input:invalid{
+  color: red;
+}

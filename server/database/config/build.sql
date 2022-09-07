@@ -5,7 +5,7 @@ comments cascade;
 CREATE table users(
     id serial primary key,
     username varchar(100) not null,
-    email varchar(100) not null,
+    email varchar(100) not null UNIQUE,
     password varchar(100) not null
 );
 CREATE table posts(

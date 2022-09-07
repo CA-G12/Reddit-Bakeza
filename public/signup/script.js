@@ -15,8 +15,7 @@ signupbtn.addEventListener('click', (e) => {
   };
   fetch('/signed', options)
     .then((data) => {
-      console.log(data, 'frontend');
-      window.location = '../index.html'
+      window.location.href = '/'
     })
     .catch((err) => console.error);
 });

@@ -12,9 +12,7 @@ signInForm.addEventListener('submit', (e) => {
   };
   fetch('/logged', options)
     .then((res) => {
-      console.log(res.body,'5415151');
-      window.location = '../index.html'
-
+      window.location.href = '/';
     })
     .catch((err) => console.log(err));
 });
