@@ -1,11 +1,12 @@
 const bcrypt = require('bcrypt');
 const joi = require('joi');
 const { postUser, getUser } = require('../database/queries');
+const generateToken  = require('../jwt');
 
 const hashPassword = (password) => bcrypt.hash(password, 10); // round
 
 const postUsers = (req, res) => {
-  // console.log(req.body);
+  console.log(req.body);
   const schema = joi.object({
     username: joi.string().required(),
     password: joi.string().required().min(4),
@@ -23,7 +24,10 @@ const postUsers = (req, res) => {
       email: req.body.email,
       password: hashedPassword,
     }))
-    .then((result) => getUser(req.body.email, req.body.password))
+    .then((result) => getUser(req.body.email, req.body.password ))
+    .then((userData) => {
+      generateToken(res, { email: req.body.email });
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json({ msg: 'server error' });

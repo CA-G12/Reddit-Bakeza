@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const joi = require('joi');
+const generateToken = require('../jwt');
 const { getUser, validatePassword } = require('../database/queries');
 
 const schema = joi.object({
@@ -10,6 +11,7 @@ const schema = joi.object({
 const getUsers = (req, res) => {
   schema.validate(req.body, { abortEarly: false });
   const { email, password } = req.body;
+  console.log(req.body);
   getUser(email, password)
     .then((user) => {
       // console.log(user);
@@ -25,6 +27,7 @@ const getUsers = (req, res) => {
             if (!compare) {
               return res.status(401).json({ ERROR: 'Incorrect Password!' });
             }
+            generateToken(res, { email: req.body.email });
           }));
     })
     .catch((err) => res.status(401).json({ ERROR: 'Internal server error' }));
