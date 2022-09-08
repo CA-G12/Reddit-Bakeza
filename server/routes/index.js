@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const getUser = require('./getUser');
 const postUser = require('./postUser');
-const verifyToken = require('./auth');
+const auth = require('./auth');
 const logout = require('./logout');
+const getPosts = require('./getPosts');
 
-router.use(getUser ,verifyToken);
+router.use(getUser ,auth);
 router.use(postUser);
 router.use(logout);
+router.use(getPosts);
 module.exports = router;
