@@ -14,15 +14,20 @@ const generateToken = (res, payload) => {
 const verifyToken = (req, res, next) => {
   const recivedToken = req.cookies.token;
   console.log(recivedToken);
-  if (!recivedToken) res.status(401).send('Access Denied');
-  jwt.verify(recivedToken, process.env.SERCRET_KEY, (err, decoded) => {
-    if (err) {
-      res.status(401).send('Not Authorized');
-    } else {
-      res.cookie('email', decoded.email);
-      next();
-    }
-  });
+  if (recivedToken) {
+    jwt.verify(recivedToken, process.env.SERCRET_KEY, (err, decoded) => {
+      if (err) {
+        res.status(401);
+        res.redirect('/');
+      } else {
+        res.cookie('email', decoded.email);
+        next();
+      }
+    });
+  } else {
+    res.status(401);
+    res.redirect('/');
+  }
 };
 
 module.exports = { generateToken, verifyToken };

@@ -14,10 +14,18 @@ app.use(compression());
 app.use(cookieParser());
 app.use(express.static(join(__dirname, '..', 'public')));
 
-app.get('/signup', (req, res) => {
-    res.redirect('/public/signup/index.html');
-    res.send('signed');
+app.get('/login', (req, res) => {
+  res.redirect('/public/login/index.html');
+  res.send('logged');
 });
+app.get('/signup', (req, res) => {
+  res.redirect('/public/signup/index.html');
+  res.send('signed');
+});
+// app.get('/posts', (req, res) => {
+//   res.redirect('/public/posts/index.html');
+//   res.send('posts');
+// });
 
 app.use(router);
 
