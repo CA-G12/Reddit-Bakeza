@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="authorizedPage/style.css" />
 
     <link
       rel="stylesheet"
@@ -28,17 +28,90 @@
         <a class="split" href="/logout">Log out</a>
       </div>
     </div>
-    <main>
-      <form action="/addPost" method="post">
-      <label>Title</label>
-      <input type="text" placeholder="title" name="title" />
-      <label>Content</label>
-      <input type="text" placeholder="content" name="content" />
-      <button type="submit">Add Post</button>
-      </form>
-      <div id="postContainer"></div>
-    </main>
-    <script src="dom.js"></script>
-    <script src="script.js"></script>
+    <main class="main center">
+      <div class="container">
+        <!-- 2-1 Posts Section -->
+        <section class="posts">
+          <!-- 2-1-1 Create post  -->
+          <div class="create-post">
+            <div class="img">
+              <img src="authorizedPage/img/logo.svg" alt="Logo" class="user-icon" />
+            </div>
+            <input
+              type="text"
+              class="post-input"
+              placeholder="What's in your mind?"
+              disabled
+            />
+            <button class="post-btn" id="post-btn">New Post</button>
+          </div>
+
+          <!-- 2-1-2 Posts-->
+            <div class="post-container" id="postContainer">
+</div>
+
+          <!-- ./post-container -->
+        </section>
+
+        <!-- 2-2 Sidebar Section -->
+        <section class="sidebar"></section>
+
+        <!-- 2-3 Create Post Modal -->
+
+        <!-- Add Modal Box Section - Post -->
+        <div id='modal-post' class='display'>
+          <div class="modal" id="modal">
+            <div class="modal-header">
+              <p class="modal-title">Add your post</p>
+              <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form id="postForm" action="/addPost" method="post" novalidate>
+                <input
+                  type="text"
+                  id="post-title" name="title"
+                  placeholder="Enter the post title"
+                  
+                />
+                <p id="postTitleErr" class="error"></p>
+                <i class="fas fa-exclamation-circle circle" id="circle1"></i>
+                
+                <textarea
+                  id="post-content-input"
+                  rows="20"
+                  cols="50"
+                  name="content"
+                  placeholder="Enter the post here"
+                  required
+                ></textarea>
+                <p id="postContentErr" class="error"></p>
+                <i class="fas fa-exclamation-circle circle" id="circle2"></i>
+  
+                <input id="createPostBtn" type="submit" value="Create Post" />
+              </form>
+            </div>
+          </div>
+  
+          <!-- Overlay -->
+          <div id="overlay"></div>
+        </div>
+        <div id="postContainer"></div>
+
+      </main>
+      <!-- End Main Section -->
+  
+      <!-- Start Back To top Button -->
+      <div id="backToTopBtn" class="btn-scroll hide">
+        <i class="far fa-angle-up"></i>
+      </div>
+      <!-- End Back To top Button -->
+  
+      <!-- Splash Screen -->
+        </div>
+
+    <span id="splash-overlay" class="splash"></span>
+    <span id="welcome" class="z-depth-4"></span>
+    <script src="authorizedPage/dom.js"></script>
+    <script src="authorizedPage/script.js"></script>
   </body>
 </html>
