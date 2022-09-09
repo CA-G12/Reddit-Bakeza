@@ -28,5 +28,17 @@
         <a class="split" href="/logout">Log out</a>
       </div>
     </div>
+    <main>
+      <form action="/addPost" method="post">
+      <label>Title</label>
+      <input type="text" placeholder="title" name="title" />
+      <label>Content</label>
+      <input type="text" placeholder="content" name="content" />
+      <button type="submit">Add Post</button>
+      </form>
+      <div id="postContainer"></div>
+    </main>
+    <script src="dom.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

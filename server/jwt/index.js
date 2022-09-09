@@ -13,14 +13,13 @@ const generateToken = (res, payload) => {
 
 const verifyToken = (req, res, next) => {
   const recivedToken = req.cookies.token;
-  console.log(recivedToken);
   if (recivedToken) {
     jwt.verify(recivedToken, process.env.SERCRET_KEY, (err, decoded) => {
       if (err) {
         res.status(401);
         res.redirect('/');
       } else {
-        res.cookie('email', decoded.email);
+        req.user = decoded;
         next();
       }
     });

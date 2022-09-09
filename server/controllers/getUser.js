@@ -11,24 +11,21 @@ const schema = joi.object({
 const getUsers = (req, res) => {
   schema.validate(req.body, { abortEarly: false });
   const { email, password } = req.body;
-  console.log(req.body);
   getUser(email, password)
     .then((user) => {
-      // console.log(user);
       if (user.rows.length < 0) { throw new Error('not found'); } else return user;
     })
     .then((data) => {
-      // console.log(data.rows[0].email, '55555555555555555');
-      validatePassword(data.rows[0].email).then((pass) =>
-      // console.log(pass);
-        bcrypt.compare(password, pass.rows[0].password)
-          .then((compare) => {
-            // console.log(compare);
-            if (!compare) {
-              return res.status(401).json({ ERROR: 'Incorrect Password!' });
-            }
-            generateToken(res, { email: req.body.email });
-          }));
+      const userData = data.rows[0];
+      validatePassword(userData.email)
+      .then((pass) => bcrypt.compare(password, pass.rows[0].password)
+        .then((compare) => {
+          if (!compare) {
+            return res.status(401).json({ ERROR: 'Incorrect Password!' });
+          }
+          res.cookie('email', userData.email);
+          generateToken(res, { email: userData.email, username: userData.username, id: userData.id });
+        }));
     })
     .catch((err) => res.status(401).json({ ERROR: 'Internal server error' }));
 };
