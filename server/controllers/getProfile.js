@@ -3,7 +3,7 @@ const { getProfile } = require('../database/queries');
 const getProfileData = (req, res) => {
     getProfile(req.user.id)
     .then((users) => {
-      console.log(users.rows);
+      req.post = users.rows
       res.json(users.rows);
     })
     .catch((err) => {

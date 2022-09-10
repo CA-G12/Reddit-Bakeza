@@ -13,6 +13,7 @@ closeBtn.addEventListener('click', (e) => {
 const renderPosts = (data) => {
   data.forEach((e) => {
     const div = document.createElement('div');
+    div.setAttribute('id', e.id);
     div.innerHTML = `
     <div class="user-post-${e.id} user-post">
     <div class="vote">
@@ -35,9 +36,13 @@ const renderPosts = (data) => {
           <p class="comment-label">Comments</p>
         </div>
       </div>
+        <div class="delete">
+          <a id=${e.id} class='deleteBtn' href="/deletePost/${e.id}">Delete</a>
+        </div>
     </div>
     </div>
 `;
     postContainer.appendChild(div);
   });
 };
+

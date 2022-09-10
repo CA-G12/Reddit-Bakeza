@@ -7,8 +7,10 @@ const logout = require('./logout');
 const getPosts = require('./getPosts');
 const getProfile = require('./getProfile');
 const profile = require('./profile');
+const deletePost = require('./deletePost');
 
 router.use(getUser);
+router.use(deletePost);
 router.use(postUser);
 router.use(getProfile);
 router.use(addPost);

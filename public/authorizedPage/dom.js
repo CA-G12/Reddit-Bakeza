@@ -11,8 +11,10 @@ closeBtn.addEventListener('click', (e) => {
 });
 
 const renderPosts = (data) => {
+  console.log(data);
   data.forEach((e) => {
     const div = document.createElement('div');
+    div.setAttribute('id', e.id);
     div.innerHTML = `
     <div class="user-post-${e.id} user-post">
     <div class="vote">

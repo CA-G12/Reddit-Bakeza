@@ -6,7 +6,6 @@ const { generateToken } = require('../jwt');
 const hashPassword = (password) => bcrypt.hash(password, 10); // round
 
 const postUsers = (req, res) => {
-  console.log(req.body);
   const schema = joi.object({
     username: joi.string().required(),
     password: joi.string().required().min(4),

@@ -3,7 +3,6 @@ const { getPosts } = require('../database/queries');
 const getPost = (req, res) => {
   getPosts()
     .then((users) => {
-      console.log(users.rows);
       res.json(users.rows);
     })
     .catch((err) => {
