@@ -110,6 +110,17 @@ a {
 .username{
   color: #ff4500;
 }
+.up{
+  color: #ff4500 ;
+  font-size: 1.5rem;
+}
+.down{
+  color: #2196f3 ;
+  font-size: 1.5rem;
+}
+.votes-num{
+  font-weight: 700;
+}
 .logo {
   margin: 0 4px;
 }

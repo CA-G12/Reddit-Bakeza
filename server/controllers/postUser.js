@@ -3,7 +3,7 @@ const joi = require('joi');
 const { postUser, getUser } = require('../database/queries');
 const { generateToken } = require('../jwt');
 
-const hashPassword = (password) => bcrypt.hash(password, 10); // round
+const hashPassword = (password) => bcrypt.hash(password, 10); 
 
 const postUsers = (req, res) => {
   const schema = joi.object({

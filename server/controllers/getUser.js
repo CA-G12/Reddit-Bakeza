@@ -18,15 +18,15 @@ const getUsers = (req, res) => {
     .then((data) => {
       const userData = data.rows[0];
       validatePassword(userData.email)
-      .then((pass) => bcrypt.compare(password, pass.rows[0].password)
-        .then((compare) => {
-          if (!compare) {
-            return res.status(401).json({ ERROR: 'Incorrect Password!' });
-          }
-          res.cookie('username', userData.username);
-          res.cookie('email', userData.email);
-          generateToken(res, { email: userData.email, username: userData.username, id: userData.id });
-        }));
+        .then((pass) => bcrypt.compare(password, pass.rows[0].password)
+          .then((compare) => {
+            if (!compare) {
+              return res.status(401).json({ ERROR: 'Incorrect Password!' });
+            }
+            res.cookie('username', userData.username);
+            res.cookie('email', userData.email);
+            generateToken(res, { email: userData.email, username: userData.username, id: userData.id });
+          }));
     })
     .catch((err) => res.status(401).json({ ERROR: 'Internal server error' }));
 };
