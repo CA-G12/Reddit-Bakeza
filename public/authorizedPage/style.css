@@ -304,7 +304,9 @@ a.username:hover,
   align-items: center;
   justify-content: space-between;
 }
-
+.username{
+  color: #ff4500;
+}
 i.fa-plus-square,
 i.fa-minus-square {
   color: var(--sub-icon);
