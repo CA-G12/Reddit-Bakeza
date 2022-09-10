@@ -2,7 +2,10 @@ const postContainer = document.querySelector('#postContainer');
 const addNewPost = document.querySelector('#post-btn');
 const closeBtn = document.querySelector('.close-btn');
 const modal = document.querySelector('#modal-post');
-
+const username = document.querySelector('#username');
+const name = document.createElement('h1');
+name.textContent= document.cookie.split(';')[0].split('=')[1]
+username.appendChild(name)
 addNewPost.addEventListener('click', (e) => {
   modal.classList.remove('display');
 });

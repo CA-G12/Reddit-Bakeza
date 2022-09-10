@@ -23,6 +23,7 @@ const getUsers = (req, res) => {
           if (!compare) {
             return res.status(401).json({ ERROR: 'Incorrect Password!' });
           }
+          res.cookie('username', userData.username);
           res.cookie('email', userData.email);
           generateToken(res, { email: userData.email, username: userData.username, id: userData.id });
         }));
