@@ -2,7 +2,6 @@ const { deletePost } = require('../database/queries');
 
 const deletePosts = (req, res) => {
   const { id } = req.params;
-  console.log(id);
   deletePost(id)
     .then((data) => res.redirect('/profile'))
     .catch((err) => {

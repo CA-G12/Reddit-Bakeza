@@ -22,13 +22,17 @@ app.get('/signup', (req, res) => {
   res.redirect('/public/signup/index.html');
   res.send('signed');
 });
+app.use(router);
+
 app.use((req, res) => {
   res.status(404).sendFile(join(__dirname, '..', 'public', 'errors', '404.html'));
+});
+app.use((req, res) => {
+  res.status(401).sendFile(join(__dirname, '..', 'public', 'errors', '401.html'));
 });
 
 app.use((err, req, res, next) => {
   res.status(err.status || 500).sendFile(join(__dirname, '..', 'public', 'errors', '500.html'));
 });
-app.use(router);
 
 module.exports = app;

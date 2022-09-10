@@ -4,7 +4,7 @@ const closeBtn = document.querySelector('.close-btn');
 const modal = document.querySelector('#modal-post');
 const username = document.querySelector('#username');
 const name = document.createElement('h1');
-name.textContent= document.cookie.split(';')[0].split('=')[1]
+name.textContent = document.cookie.split(';')[0].split('=')[1]
 username.appendChild(name)
 addNewPost.addEventListener('click', (e) => {
   modal.classList.remove('display');
@@ -20,12 +20,13 @@ const renderPosts = (data) => {
     div.innerHTML = `
     <div class="user-post-${e.id} user-post">
     <div class="vote">
-      <i class="fas fa-long-arrow-alt-up"></i>
-      <div>
-        <p class="votes-num" id="votes-num">0</p>
-      </div>
-      <i class="fas fa-long-arrow-alt-down"></i>
+    <i class="fas fa-long-arrow-alt-up up"></i>
+    <div>
+      <p class="votes-num" id="votes-num">0</p>
     </div>
+    <i class="fas fa-long-arrow-alt-down down"></i>
+    </div>
+
   
     <div class="post-content">
     <div class="post-title username"><h3>${e.username}</h3></div>
