@@ -107,6 +107,26 @@ a {
   align-items: center;
   color: #ff4500;
 }
+.delete{
+  margin: 1rem 0;
+  border-radius: 10px;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  background-color: var(--sub-icon);
+
+}
+.delete a{
+  padding: 1rem 0;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+.delete:hover{
+  background-color: #ff4500;
+}
+
+
 
 .logo {
   margin: 0 4px;
