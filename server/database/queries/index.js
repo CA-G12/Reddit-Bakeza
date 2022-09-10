@@ -6,4 +6,6 @@ const validatePassword = require('./validatePassword');
 const getProfile = require('./getProfile');
 const deletePost = require('./deletePost');
 
-module.exports = { getUser, postUser, validatePassword, getPosts, addPost, getProfile, deletePost };
+module.exports = {
+  getUser, postUser, validatePassword, getPosts, addPost, getProfile, deletePost,
+};

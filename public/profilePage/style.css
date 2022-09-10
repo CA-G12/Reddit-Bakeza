@@ -116,6 +116,9 @@ a {
   background-color: var(--sub-icon);
 
 }
+.username{
+  color: #ff4500;
+}
 .delete a{
   padding: 1rem 0;
   text-decoration: none;

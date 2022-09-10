@@ -26,8 +26,9 @@ const renderPosts = (data) => {
     </div>
   
     <div class="post-content">
-      <div class="post-title">${e.title}</div>
-      <div class="post-desc">${e.content}</div>
+      <div class="post-title username"><h3>${e.username}</h3></div>
+      <div class="post-title"><h4>${e.title}</h4></div>
+      <div class="post-desc"><p>${e.content}</p></div>
       <div class="post-title">
         <div class="post-desc"></div>
       </div>
