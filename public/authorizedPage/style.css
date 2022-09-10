@@ -307,6 +307,20 @@ a.username:hover,
 .username{
   color: #ff4500;
 }
+#username{
+  display: flex;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+#username h1{
+  color: #ff4500;
+}
+#username h1:first-child{
+  color: black;
+  padding-right: 5px;
+
+}
+
 i.fa-plus-square,
 i.fa-minus-square {
   color: var(--sub-icon);
